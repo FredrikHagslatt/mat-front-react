@@ -1,0 +1,39 @@
+/* -- navbar -- */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+li {
+    float:left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-right: 1px solid rgba(200, 200, 200, 0.1);
+
+}
+
+li:last-child {
+    float:right;
+    border-right: none;
+    border-left: 1px solid rgba(200, 200, 200, 0.1);
+}
+
+li a:hover{
+    background-color: rgba(200, 200, 200, 0.3);
+}
+
+.active{
+    background-color: rgba(100, 100, 100, 0.4);
+}
