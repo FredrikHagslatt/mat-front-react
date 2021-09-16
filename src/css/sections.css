@@ -1,25 +1,26 @@
 
 .window-size{
-position: absolute;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-/*    
-    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+/*
+min-height: 100vh;
     min-width: 100vh;
 */
 }
 
 .background-image {
     background-image: url("/src/images/backgrounds/doodle.jpg");
-    background-size: cover;
+    background-size: contain;
     /*
     background-color: rgba(255, 131, 0, 0.95);
     background-color: rgba(255, 100, 0, 0.95);
+
 */
 }
-
 
 .fit-parent {
     height: 100%;
@@ -31,10 +32,26 @@ right: 0;
 }
 
 .main-container {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 4%;
+    max-width: 100vh;
+}
+
+.grid-navbar{
+    grid-row: 1;
+    overflow: hidden;
+}
+
+.grid-content{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(8px + 2vmin);
     align-items: center;
     justify-content: center;
     color: white;
@@ -45,14 +62,20 @@ right: 0;
     align-items: center;
     justify-content: center;
 }
-
 @media (max-width:90vh){ .dinnermenu {flex-direction: column;}}
 
+.more-recipes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10%;
+}
 
 div.item{
     background-color: rgba(100, 100, 100, 0.8);
-    width: 250px;
-    max-width: 50%;
+    max-width: 30%;
+    min-width: 20%;
     margin: 20px;
     padding: 10px;
     transition: 400ms;

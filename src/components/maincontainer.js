@@ -1,7 +1,7 @@
 import '../css/sections.css';
 import React, {Component} from 'react';
-import Navbar from './navbar.js';
-import SectionManager from './sectionmanager.js';
+import Navbar from './navbar';
+import SectionManager from './sectionmanager';
 
 class MainContainer extends Component{
     constructor(props){
@@ -24,18 +24,51 @@ class MainContainer extends Component{
     render(){
         return(            
             <div className= "window-size background-image">
-                <div className="fit-parent overlay main-container">
-                    <Navbar
-                        elements={this.state.sections} 
-                        active={this.state.activeSection} 
-                        onClick={this.NavbarClick}/>
-
-                    <SectionManager 
-                        active={this.state.activeSection}
-                        showImages={this.state.showImages} />
-                
+                <div className= "fit-parent overlay flexbox">
+                    <div className="fit-parent main-container">
+                        <div className="grid-navbar">
+                            <Navbar
+                                elements={this.state.sections} 
+                                active={this.state.activeSection} 
+                                onClick={this.NavbarClick}/>
+                        </div>
+                        <div className="grid-content">
+                            <SectionManager 
+                                active={this.state.activeSection}
+                                showImages={this.state.showImages} />
+                        </div>
+                    </div>
                 </div>
             </div>
         );
     };
 } export default MainContainer;
+
+
+
+/*
+
+
+        return(            
+            <div className= "window-size background-image">
+                <div className="fit-parent overlay main-container">
+                    <div className="grid-navbar">
+                        <Navbar
+                            elements={this.state.sections} 
+                            active={this.state.activeSection} 
+                            onClick={this.NavbarClick}/>
+                    </div>
+                    <div className="grid-content">
+                        <SectionManager 
+                            active={this.state.activeSection}
+                            showImages={this.state.showImages} />
+                    </div>
+                </div>
+            </div>
+        );
+
+
+
+
+
+*/

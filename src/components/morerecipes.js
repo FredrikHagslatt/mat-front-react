@@ -1,10 +1,24 @@
+import Recipe from './recipe';
 import React, {Component} from 'react';
 
 class MoreRecipes extends Component {
 
     render(){
         return(
-            <p>MoreRecipes</p>
+            <div className="more-recipes">
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+                <Recipe />
+            </div>
         );
     }
 

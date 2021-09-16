@@ -15,11 +15,9 @@ class Navbar extends Component {
 
     render(){
         return(
-            <div>
                 <ul>
                     {this.RenderNavbarElements()}                       
                 </ul>
-            </div>
         );
     }
 
