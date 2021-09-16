@@ -1,0 +1,131 @@
+
+.window-size{
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+/*    
+    min-height: 100vh;
+    min-width: 100vh;
+*/
+}
+
+.background-image {
+    background-image: url("/src/images/backgrounds/doodle.jpg");
+    background-size: cover;
+    /*
+    background-color: rgba(255, 131, 0, 0.95);
+    background-color: rgba(255, 100, 0, 0.95);
+*/
+}
+
+
+.fit-parent {
+    height: 100%;
+    width: 100%;
+}
+
+.overlay{
+    background-color: rgba(200, 80, 0, 0.95);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: calc(10px + 2vmin);
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.dinnermenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:90vh){ .dinnermenu {flex-direction: column;}}
+
+
+div.item{
+    background-color: rgba(100, 100, 100, 0.8);
+    width: 250px;
+    max-width: 50%;
+    margin: 20px;
+    padding: 10px;
+    transition: 400ms;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+    background: transparent;
+}
+
+.section {
+    position: absolute;
+    left: 0%;
+    top: 3%;
+    width: 100%;
+    padding-top: 8%;
+    transition: 400ms;
+    overflow: hidden;
+}
+
+.flexbox {
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hide-left {
+    visibility: hidden;
+    transition: 400ms;
+    left: -100%
+}
+
+.hide-right {
+    visibility: hidden;
+    transition: 400ms;
+    left: 100%
+}
+
+div.item{
+    background-color: rgba(100, 100, 100, 0.8);
+    width: 250px;
+    max-width: 50%;
+    margin: 20px;
+    padding: 10px;
+    transition: 400ms;
+}
+
+div.item:hover{
+    transform: scale(1.1);
+    transition: 400ms;
+}
+
+div.item img{
+    width: 100%;
+}
+
+div.desc{
+    text-align: center;
+    color: white;
+}
+
+.visible-on-background {
+    color: white;
+    font-size: 20px;
+    text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+}
+
+.text-href {
+    text-decoration: none;
+}
