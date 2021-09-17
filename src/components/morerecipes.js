@@ -21,7 +21,6 @@ class MoreRecipes extends Component {
     }
 
     render(){
-
         const classes = this.state.isMobile ? 'flexbox more-recipes mobile' : 'flexbox more-recipes';
         return(
             <div className={classes}>
