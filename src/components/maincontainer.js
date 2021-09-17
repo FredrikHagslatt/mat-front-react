@@ -1,7 +1,8 @@
-import '../css/sections.css';
+import '../css/myStyle.css';
 import React, {Component} from 'react';
 import Navbar from './navbar';
 import SectionManager from './sectionmanager';
+import Footer from './footer';
 
 class MainContainer extends Component{
     constructor(props){
@@ -14,6 +15,7 @@ class MainContainer extends Component{
             ],
             activeSection: 'Dinner Menu',
             showImages: false,
+            widthSwitch: 800,
         }
     }
 
@@ -23,52 +25,20 @@ class MainContainer extends Component{
     
     render(){
         return(            
-            <div className= "window-size background-image">
-                <div className= "fit-parent overlay flexbox">
-                    <div className="fit-parent main-container">
-                        <div className="grid-navbar">
-                            <Navbar
-                                elements={this.state.sections} 
-                                active={this.state.activeSection} 
-                                onClick={this.NavbarClick}/>
-                        </div>
-                        <div className="grid-content">
-                            <SectionManager 
-                                active={this.state.activeSection}
-                                showImages={this.state.showImages} />
-                        </div>
-                    </div>
-                </div>
+            <div className="window-size background-image">
+                    <Navbar
+                        elements={this.state.sections} 
+                        active={this.state.activeSection} 
+                        onClick={this.NavbarClick}/>
+
+                    <SectionManager 
+                        active={this.state.activeSection}
+                        showImages={this.state.showImages} 
+                        widthSwitch={this.state.widthSwitch}/>
+
+                    <Footer />
+
             </div>
         );
     };
 } export default MainContainer;
-
-
-
-/*
-
-
-        return(            
-            <div className= "window-size background-image">
-                <div className="fit-parent overlay main-container">
-                    <div className="grid-navbar">
-                        <Navbar
-                            elements={this.state.sections} 
-                            active={this.state.activeSection} 
-                            onClick={this.NavbarClick}/>
-                    </div>
-                    <div className="grid-content">
-                        <SectionManager 
-                            active={this.state.activeSection}
-                            showImages={this.state.showImages} />
-                    </div>
-                </div>
-            </div>
-        );
-
-
-
-
-
-*/

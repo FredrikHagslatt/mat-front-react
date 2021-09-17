@@ -1,4 +1,4 @@
-import '../css/navbar.css';
+import '../css/myStyle.css';
 import React, {Component} from 'react';
 
 
@@ -15,11 +15,12 @@ class Navbar extends Component {
 
     render(){
         return(
+            <header className="header-wrapper flexbox">
                 <ul>
                     {this.RenderNavbarElements()}                       
                 </ul>
+            </header>
         );
     }
 
 }export default Navbar;
-

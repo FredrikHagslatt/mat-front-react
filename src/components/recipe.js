@@ -1,4 +1,4 @@
-import '../css/sections.css';
+import '../css/myStyle.css';
 import image from "../images/recipes/club_sandwich_cake.jpg";
 
 function Recipe(props){
@@ -8,10 +8,10 @@ function Recipe(props){
     return (
         <div className="item">
             <div className="desc">
-                <h1>{day}</h1>
+                <h3>{day}</h3>
                 <p>{name}</p>
-                <img src={image} className='item' alt=''></img>
             </div>
+            <img src={image} className='item' alt=''></img>
         </div>
     );
 }export default Recipe;
