@@ -139,6 +139,11 @@ div.desc{
     color: white;
 }
 
+input{
+    background-color: rgb(50, 50, 50);
+}
+
+
 .footer-wrapper{
     position: fixed;
     bottom: 0;

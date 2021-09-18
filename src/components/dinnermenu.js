@@ -21,16 +21,6 @@ class DinnerMenu extends Component {
             });
         }, false);
     }
-    
-    /*
-    render() {
-        const className = this.state.isMobile ? 'mobile' : '';
-        return (
-            <Component className={className} />
-        )
-    }
-*/
-
 
     render(){
         const classes = this.state.isMobile ? 'flexbox dinner-menu mobile' : 'flexbox dinner-menu';
