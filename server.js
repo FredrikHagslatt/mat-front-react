@@ -1,16 +1,23 @@
-'use strict';
-
 const express = require('express');
-
-// Constants
-const PORT = 8081;
-const HOST = '0.0.0.0';
+const bodyParser = require('body-parser');
 
 // App
 const app = express();
+
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.get('/home', (req, res) => {
+  res.json({
+    name: 'Bill',
+    age: 99
+  })
+})
+
+const PORT = 3001;
+app.listen(PORT, () => console.log('Server is up!!'));
+console.log('Running on http://localhost:' + PORT );
