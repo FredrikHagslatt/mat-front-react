@@ -7,35 +7,13 @@ class DBFetcher{
     }
     
     GetDinnerMenu(){
-        return(fetch('/home')
+        return(fetch('/dinnermenu')
             .then((response) => 
             response.json())
-            .then((response) => response.name)
+            .then((response) => response.data)
         );
-            /*
-        promise.then((value) => {
-            console.log('promise');
-            console.log(value);
-            this.dinnerMenu = value;
-            this.name = value.name;
-            this.age = value.age;
-            console.log('name: ', this.name);
-            console.log('age: ', this.age);
-            console.log('dinnerMenu: ', this.dinnerMenu);
-        });        
-
-        Promise.resolve(promise)
-        .then((value) => {
-            console.log('POOL');
-            console.log(value.name);
-            this.dinnerMenu = value.name;
-        });
-        return this.dinnerMenu;
-*/
-
     }
 
-    
     GetMoreRecipes(){}
 
     render(){
@@ -44,20 +22,3 @@ class DBFetcher{
 
 
 }export default DBFetcher;
-
-
-
-/*
-
-
-    GetDinnerMenu(){
-        fetch('/home')
-        .then(res => res.json())
-        .then(data => this.UpdateDinnerMenu(data))
-
-        console.log('--');
-        console.log(this.state.dinnerMenu);       
-    }
-
-
-    */

@@ -9,33 +9,41 @@ class DinnerMenu extends Component {
         this.state={
             isMobile: window.innerWidth < props.widthSwitch,
             db: new DBFetcher(),
-            dinnerMenu: 'Benny',
+
+            mockRecipe: {
+                'name': 'mock-recipe',
+                'image': 'gulasch.jpg',
+                'url': 'https://9gag.com',
+            },
+            dinnerMenu: [{
+                'name': 'mock-recipe',
+                'image': 'gulasch.jpg',
+                'url': 'https://9gag.com',
+            }],
+
         }
     }
 
-    RenderItem(){
-        
+    RenderItem(recipe){
+        if(typeof recipe === 'object'){
+            return <Recipe day='today' recipe={recipe}/>
+        }else{
+            return <Recipe day='today' recipe={this.state.mockRecipe}/>
+        }
     }
 
     componentDidMount() {
-
         Promise.resolve(this.state.db.GetDinnerMenu())
         .then((value) => {
             console.log('Setting state to Bill');
-            console.log(value);
-            this.setState({dinnerMenu: value});
+            var parsedMenu = JSON.parse(value);
+            console.log(parsedMenu);
+
+            this.setState({
+                dinnerMenu: parsedMenu
+            })
+
         })
-
-        //        this.setState(dinnerMenu, dinnerMenu);
-
-        /*
-        this.state.db.GetDinnerMenu()
-        .then((dinnerMenu) => {
-            console.log('ÅÄÖÅÄÖ');
-            console.log(dinnerMenu);
-        });
-*/
-
 
         window.addEventListener('resize', () => {
             this.setState({
@@ -48,10 +56,10 @@ class DinnerMenu extends Component {
         const classes = this.state.isMobile ? 'flexbox dinner-menu mobile' : 'flexbox dinner-menu';
         return(
             <div className={classes}>
-                <div>{this.state.dinnerMenu}</div>
-                <Recipe />
-                <Recipe />
-                <Recipe />
+                {this.RenderItem(this.state.dinnerMenu[0])}
+                {this.RenderItem(this.state.dinnerMenu[1])}
+                {this.RenderItem(this.state.dinnerMenu[2])}
+
             </div>
         );
     }

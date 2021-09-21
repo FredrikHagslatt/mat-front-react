@@ -1,5 +1,19 @@
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
+// Database
+
+const { Pool } = require('pg');
+const db = new Pool();
+
+function GetDinnerMenu(){
+  const sql = 'SELECT name, queue_pos, url, image FROM recipes WHERE queue_pos < 3 ORDER BY queue_pos';
+  return Promise.resolve(
+    db.query(sql)
+    .then((result) =>
+    result) 
+  );
+}
 
 // App
 const app = express();
@@ -11,12 +25,26 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-app.get('/home', (req, res) => {
+app.get('/BillsHome', (req, res) => {
   res.json({
     name: 'Bill',
     age: 99
   })
 })
+
+app.get('/dinnermenu', (req, res) => {
+  const promise = GetDinnerMenu(); 
+
+  promise.then((value) => {
+
+    res.json({'data': JSON.stringify(value.rows)})
+
+//    res.json({'name': 'menu inc'})
+//    res.json({'name': value.rows})
+  });
+})
+
+
 
 const PORT = 3001;
 app.listen(PORT, () => console.log('Server is up!!'));
