@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Password from "./password";
 
 class Admin extends Component {
     constructor(props){
@@ -93,15 +94,21 @@ class Admin extends Component {
     };
 
     render(){
-        return(
-            <form onSubmit={this.handleSubmit}>
-                {this.RenderNameInput()}
-                {this.RenderURLButtons()}
-                {this.RenderDescription()}
-                {this.RenderIngredients()}
-                <input type="submit" value="Submit" />
-            </form>
-        );
+        let loggedIn = false;
+        if(loggedIn){
+            return(
+                <form onSubmit={this.handleSubmit}>
+                    {this.RenderNameInput()}
+                    {this.RenderURLButtons()}
+                    {this.RenderDescription()}
+                    {this.RenderIngredients()}
+                    <input type="submit" value="Submit" />
+                </form>
+            );    
+        }else{
+            return<Password />;
+        }
+
     }
 
 }export default Admin;

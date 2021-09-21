@@ -116,8 +116,7 @@ li:hover{
     background: transparent;
 }
 
-
-div.item{
+a.item{
     background-color: rgba(100, 100, 100, 0.8);
     width: 200px;
     margin: 20px;
@@ -126,12 +125,12 @@ div.item{
     cursor: pointer;
 }
 
-div.item:hover{
+a.item:hover{
     transform: scale(1.1);
     transition: 400ms;
 }
 
-div.item img{
+a.item img{
     width: 100%;
 }
 

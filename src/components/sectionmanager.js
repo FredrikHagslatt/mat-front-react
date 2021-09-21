@@ -1,15 +1,31 @@
-import DinnerMenu from "./dinnermenu.js";
-import MoreRecipes from "./morerecipes.js";
-import Admin from "./admin.js";
+import DinnerMenu from "./dinnermenu";
+import MoreRecipes from "./morerecipes";
+import Admin from "./admin";
 import React, {Component} from 'react';
+import DBFetcher from './dbfetcher';
 
 class SectionManager extends Component {
+    constructor(props){
+        super(props);
+        this.db = new DBFetcher();
+    }
+
+    ClickItem(url){
+        console.log('Triggered!');
+        alert(url);
+    }
 
     GetSection(){
-        if(this.props.active === 'Dinner Menu'){
-            return<DinnerMenu widthSwitch={this.props.widthSwitch} />;
-        }else if(this.props.active === 'More Recipes'){
-            return<MoreRecipes widthSwitch={this.props.widthSwitch} />;
+        if(this.props.active === 'Middagsmeny'){
+            return<DinnerMenu 
+                widthSwitch={this.props.widthSwitch} 
+                db={this.db}/>;
+
+        }else if(this.props.active === 'Fler recept'){
+            return<MoreRecipes 
+                widthSwitch={this.props.widthSwitch} 
+                db={this.db}/>;
+
         }else{
             return<Admin />;
         }

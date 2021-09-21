@@ -14,7 +14,13 @@ class DBFetcher{
         );
     }
 
-    GetMoreRecipes(){}
+    GetMoreRecipes(){
+        return(fetch('/morerecipes')
+            .then((response) => 
+            response.json())
+            .then((response) => response.data)
+        );
+    }
 
     render(){
         return;        

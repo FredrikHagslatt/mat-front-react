@@ -15,6 +15,16 @@ function GetDinnerMenu(){
   );
 }
 
+function GetMoreRecipes(){
+  const sql = 'SELECT name, queue_pos, url, image FROM recipes ORDER BY name';
+  return Promise.resolve(
+    db.query(sql)
+    .then((result) =>
+    result) 
+  );
+}
+
+
 // App
 const app = express();
 
@@ -34,16 +44,17 @@ app.get('/BillsHome', (req, res) => {
 
 app.get('/dinnermenu', (req, res) => {
   const promise = GetDinnerMenu(); 
-
   promise.then((value) => {
-
     res.json({'data': JSON.stringify(value.rows)})
-
-//    res.json({'name': 'menu inc'})
-//    res.json({'name': value.rows})
   });
 })
 
+app.get('/morerecipes', (req, res) => {
+  const promise = GetMoreRecipes(); 
+  promise.then((value) => {
+    res.json({'data': JSON.stringify(value.rows)})
+  });
+})
 
 
 const PORT = 3001;

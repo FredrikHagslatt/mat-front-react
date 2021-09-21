@@ -9,11 +9,11 @@ class MainContainer extends Component{
         super(props);
         this.state = {
             sections: [
-                'Dinner Menu',
-                'More Recipes', 
+                'Middagsmeny',
+                'Fler recept', 
                 'Admin',
             ],
-            activeSection: 'Dinner Menu',
+            activeSection: 'Middagsmeny',
             showImages: false,
             widthSwitch: 800,
         }
